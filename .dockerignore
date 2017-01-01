@@ -1,0 +1,6 @@
+.*
+!.eslintrc
+*.md
+*.yml
+Dockerfile
+node_modules

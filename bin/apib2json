@@ -1,0 +1,71 @@
+#!/usr/bin/env node
+
+/**
+ * This file is part of the apib2json
+ *
+ * Copyright (c) 2017 Petr Bugyík
+ *
+ * For the full copyright and license information, please view
+ * the file LICENSE.md that was distributed with this source code.
+ */
+
+const Fs = require('fs');
+const Program = require('commander');
+const info = require('./../package.json');
+const Apib2Json = require('./../lib/apib2json');
+
+Program
+    .version(info.version)
+    .description(info.description)
+    .option('-v, --verbose', 'Verbose mode, use with --output - default: false')
+    .option('-p, --pretty', 'Output pretty (indented) JSON - default: false')
+    .option('--indent <n>', 'Number of space characters used to indent code, use with --pretty - default: 2', parseInt)
+    .option('-i, --input <file>', 'Path to input (Apib) file - default: STDIN')
+    .option('-o, --output <file>', 'Path to output (JSON) file - default: STDOUT')
+    .parse(process.argv);
+
+function main(input) {
+    const options = {
+        verbose: (Program.output && Program.verbose) || false,
+        pretty: (Program.pretty && true),
+        indent: Program.indent || 2,
+    };
+
+    (new Apib2Json(options))
+        .toJson(input)
+        .then((json) => {
+            Program.output
+                ? Fs.writeFileSync(Program.output, json)
+                : process.stdout.write(json);
+        })
+        .catch(console.error); // eslint-disable-line no-console
+}
+
+let input = '';
+if (process.stdin.isTTY) {
+    if (!Program.input) {
+        Program.outputHelp();
+        process.exit(2);
+    }
+
+    input = Fs
+        .readFileSync(Program.input)
+        .toString();
+
+    main(input);
+} else {
+    process.stdin.on('data', (chunk) => {
+        input += chunk;
+    });
+
+    process.stdin.on('end', () => {
+        if (!input) {
+            Program.outputHelp();
+            process.exit(2);
+        }
+
+        main(input);
+    });
+
+    process.stdin.setEncoding('utf8');
+}

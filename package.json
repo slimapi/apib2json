@@ -1,0 +1,33 @@
+{
+  "name": "apib2json",
+  "version": "0.1.0",
+  "description": "A command-line utility to convert API Blueprint to JSON Schema",
+  "license": "MIT",
+  "author": "Petr Bugyík",
+  "bin": "./bin/apib2json",
+  "main": "./lib/apib2json.js",
+  "engines": {
+    "node": ">=7"
+  },
+  "dependencies": {
+    "commander": "~2.9.0",
+    "protagonist": "~1.6.3"
+  },
+  "devDependencies": {
+    "eslint": "~3.12.2",
+    "eslint-config-airbnb": "~13.0.0",
+    "eslint-plugin-import": "~2.2.0",
+    "eslint-plugin-jsx-a11y": "~2.2.3",
+    "eslint-plugin-react": "~6.8.0",
+    "istanbul": "~0.4.5"
+  },
+  "scripts": {
+    "lint": "./node_modules/eslint/bin/eslint.js --color bin/* lib test/",
+    "test": "node ./test/apib2json.js",
+    "coverage": "./node_modules/istanbul/lib/cli.js cover --include=all-sources ./test/apib2json.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/o5/apib2json.git"
+  }
+}

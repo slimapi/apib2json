@@ -1,0 +1,137 @@
+{
+    "[PUT]/backend/v1/account/login": [
+        {
+            "meta": {
+                "type": "request",
+                "title": "Success"
+            },
+            "schema": {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "type": "object",
+                "properties": {
+                    "login": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "login",
+                    "password"
+                ]
+            }
+        },
+        {
+            "meta": {
+                "type": "response",
+                "title": null
+            },
+            "schema": {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "type": "object",
+                "properties": {
+                    "access_token": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        {
+            "meta": {
+                "type": "request",
+                "title": "Bad Credentials"
+            },
+            "schema": {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "type": "object",
+                "properties": {
+                    "login": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "login",
+                    "password"
+                ]
+            }
+        },
+        {
+            "meta": {
+                "type": "response",
+                "title": null
+            },
+            "schema": {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "number"
+                    },
+                    "error": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "code",
+                    "error",
+                    "message"
+                ]
+            }
+        }
+    ],
+    "[GET]/backend/v1/account/me": [
+        {
+            "meta": {
+                "type": "response",
+                "title": null
+            },
+            "schema": {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "first_name": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "minLength": 1,
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    ],
+    "[GET]/frontend/v1/articles": [
+        {
+            "meta": {
+                "type": "response",
+                "title": null
+            },
+            "schema": {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "title"
+                ]
+            }
+        }
+    ]
+}

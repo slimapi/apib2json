@@ -1,0 +1,23 @@
+{
+  "env": {
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "script",
+    "ecmaFeatures": {
+      "impliedStrict": true,
+      "jsx": false
+    }
+  },
+  "extends": "airbnb",
+  "rules": {
+    "eol-last": [2],
+    "comma-dangle": [2, "always-multiline"],
+    "indent": [2, 4],
+    "max-len": [2, {"code": 120}],
+    "no-unsafe-negation": 0,
+    "import/no-unresolved": 0,
+    "no-unused-expressions": [2, {"allowTernary": true, "allowShortCircuit": true}]
+  }
+}

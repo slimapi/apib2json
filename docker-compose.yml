@@ -1,0 +1,10 @@
+version: '2'
+services:
+    app:
+        build: .
+        container_name: apib2json
+        entrypoint: /bin/sh
+        command: -c "npm install && echo && echo '*** HAPPY CODING! ***' && echo && while true; do sleep 1; done;" # this is a little hack :)
+
+        volumes:
+            - '.:/src/apib2json/'

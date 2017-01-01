@@ -1,0 +1,78 @@
+{
+  "[GET]/coupons/{id}": [
+    {
+      "meta": {
+        "type": "response",
+        "title": null
+      },
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "created": {
+            "type": "number",
+            "description": "Time stamp"
+          },
+          "percent_off": {
+            "type": "number",
+            "description": "A positive integer between 1 and 100 that represents the discount the coupon will apply."
+          },
+          "redeem_by": {
+            "type": "number",
+            "description": "Date after which the coupon can no longer be redeemed"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    }
+  ],
+  "[GET]/coupons{?limit}": [
+    {
+      "meta": {
+        "type": "response",
+        "title": null
+      },
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "array"
+      }
+    }
+  ],
+  "[POST]/coupons{?limit}": [
+    {
+      "meta": {
+        "type": "response",
+        "title": null
+      },
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "created": {
+            "type": "number",
+            "description": "Time stamp"
+          },
+          "percent_off": {
+            "type": "number",
+            "description": "A positive integer between 1 and 100 that represents the discount the coupon will apply."
+          },
+          "redeem_by": {
+            "type": "number",
+            "description": "Date after which the coupon can no longer be redeemed"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    }
+  ]
+}
