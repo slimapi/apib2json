@@ -1,6 +1,6 @@
 {
   "name": "apib2json",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "dependencies": {
     "commander": {
       "version": "2.9.0",
