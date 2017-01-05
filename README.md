@@ -11,7 +11,7 @@ A command-line utility to convert API Blueprint to JSON Schema.
 
 If you are building your API with [Apiary][link-apiary] you should know [API Blueprint][link-apib], right? Good documentation is cool but it would be nice to re-use your validation which you already wrote in [MSON][link-mson] (or [JSON Schema][link-json-schema]). So there is the task: *Convert Blueprint to JSON Schema*. This tool is specially for it.
   
-It is built on top of [apiaryio/protagonist][link-protagonist] which do hard job, but if you know this Node.js C++ binding you sure know that compilation of this library (`npm install protagonist`) takes time. This is the reason why this tool is also wrapped with [Docker][link-docker], but sure you can also use it via `npm`.
+It is built on top of [apiaryio/protagonist][link-protagonist] which do hard job, but if you know this Node.js C++ binding you sure know that compilation of this library (`npm install protagonist`) takes time. This is the reason why this tool is also wrapped with [Docker][link-docker], but sure you can also use it with [`npm`][link-npm].
 
 ## Installation
 
@@ -144,12 +144,13 @@ MIT @ [Petr Bugyík][link-twitter]
 [link-apib]: https://github.com/apiaryio/api-blueprint
 [link-mson]: https://github.com/apiaryio/mson
 [link-json-schema]: http://json-schema.org
-[link-docker]: https://www.docker.com/products/overview
+[link-docker]: https://www.docker.com/what-docker
 [link-registry]: https://hub.docker.com/r/bugyik/apib2json
 [link-microbadger]: https://microbadger.com/images/bugyik/apib2json
 [link-issue]: https://github.com/o5/apib2json/issues
 [link-nvm]: https://github.com/creationix/nvm
 [link-twitter]: https://twitter.com/bugyik
+[link-npm]: https://www.npmjs.com/package/apib2json
 
 [img-build-status]: https://img.shields.io/travis/o5/apib2json/master.svg
 [img-coverage]: https://img.shields.io/coveralls/o5/apib2json.svg
