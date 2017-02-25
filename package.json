@@ -1,6 +1,6 @@
 {
   "name": "apib2json",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A command-line utility to convert API Blueprint to JSON Schema",
   "license": "MIT",
   "author": "Petr Bugyík",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "commander": "~2.9.0",
-    "protagonist": "~1.6.4"
+    "protagonist": "~1.6.5"
   },
   "devDependencies": {
     "eslint": "~3.15.0",

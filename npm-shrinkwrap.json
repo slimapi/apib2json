@@ -1026,9 +1026,9 @@
       "dev": true
     },
     "protagonist": {
-      "version": "1.6.4",
-      "from": "protagonist@1.6.4",
-      "resolved": "https://registry.npmjs.org/protagonist/-/protagonist-1.6.4.tgz"
+      "version": "1.6.5",
+      "from": "protagonist@1.6.5",
+      "resolved": "https://registry.npmjs.org/protagonist/-/protagonist-1.6.5.tgz"
     },
     "readable-stream": {
       "version": "2.2.2",
