@@ -1,4 +1,4 @@
-FROM node:7.6-alpine
+FROM node:8.4-alpine
 MAINTAINER Petr Bugyík
 
 ENV PROJECT_ROOT /src/apib2json
@@ -6,17 +6,15 @@ ENV PATH ${PROJECT_ROOT}/bin:$PATH
 
 WORKDIR ${PROJECT_ROOT}
 
-RUN apk add --update \
+RUN apk add --no-cache \
     python \
     make \
-    g++ \
-  && rm -rf /var/cache/apk/*
+    g++
 
 ADD package.json .
-ADD npm-shrinkwrap.json .
+ADD package-lock.json .
 RUN npm install --production && \
-    rm -rf /root/.npm && \
-    npm cache clear
+    npm cache --force clean
 
 COPY . .
 

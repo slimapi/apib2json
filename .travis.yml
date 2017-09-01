@@ -15,8 +15,6 @@ script:
     - docker exec -it ${TRAVIS_COMMIT} npm run --silent lint
     - docker exec -it ${TRAVIS_COMMIT} npm run --silent coverage
     - docker exec -it ${TRAVIS_COMMIT} sh -c "cat coverage/lcov.info" | coveralls
-    - docker exec -it ${TRAVIS_COMMIT} sh -c "npm prune --production && apk del python make g++"
-    - docker images
 
 after_success:
     - if [ "$TRAVIS_BRANCH" == "master" ]; then

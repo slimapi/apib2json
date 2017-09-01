@@ -17,7 +17,6 @@ const Apib2Json = require('./../lib/apib2json');
 const fixtures = __dirname + '/fixtures';
 
 class Test {
-
     static pass(...args) {
         const a = Util.format(...args);
         console.log(`\x1b[32mPASS:\x1b[0m ${a}`);
