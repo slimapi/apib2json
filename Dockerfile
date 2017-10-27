@@ -1,4 +1,4 @@
-FROM node:8.4-alpine
+FROM node:8.8-alpine
 MAINTAINER Petr Bugyík
 
 ENV PROJECT_ROOT /src/apib2json
