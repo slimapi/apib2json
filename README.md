@@ -19,7 +19,7 @@ It is built on top of [apiaryio/protagonist][link-protagonist] which do hard job
 $ npm install --global apib2json
 ```
 
-> **NOTE**: Recommended way is using a dockerized version, just try `$ docker run bugyik/apib2json --help`
+> **NOTE**: Recommended way is using a dockerized version, just try `$ docker run --rm bugyik/apib2json --help`
 
 ## Usage
 
@@ -43,10 +43,10 @@ Options:
 
 ## Example
 
-> **NOTE**: The example below requires `docker` installed (npm's version without prefix `docker run -i bugyik/`) 
+> **NOTE**: The example below requires `docker` installed (npm's version without prefix `docker run --rm -i bugyik/`) 
 
 ```bash
-$ docker run -i bugyik/apib2json --pretty < input.apib > output.json
+$ docker run --rm -i bugyik/apib2json --pretty < input.apib > output.json
 ``` 
 
 **$ cat input.apib**
