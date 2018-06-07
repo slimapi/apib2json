@@ -3,7 +3,8 @@
         {
             "meta": {
                 "type": "request",
-                "title": "Success"
+                "title": "Success",
+                "group": "Account"
             },
             "schema": {
                 "$schema": "http://json-schema.org/draft-04/schema#",
@@ -25,7 +26,9 @@
         {
             "meta": {
                 "type": "response",
-                "title": null
+                "title": null,
+                "group": "Account",
+                "statusCode": "200"
             },
             "schema": {
                 "$schema": "http://json-schema.org/draft-04/schema#",
@@ -40,7 +43,8 @@
         {
             "meta": {
                 "type": "request",
-                "title": "Bad Credentials"
+                "title": "Bad Credentials",
+                "group": "Account"
             },
             "schema": {
                 "$schema": "http://json-schema.org/draft-04/schema#",
@@ -62,7 +66,9 @@
         {
             "meta": {
                 "type": "response",
-                "title": null
+                "title": null,
+                "group": "Account",
+                "statusCode": "401"
             },
             "schema": {
                 "$schema": "http://json-schema.org/draft-04/schema#",
@@ -90,7 +96,9 @@
         {
             "meta": {
                 "type": "response",
-                "title": null
+                "title": null,
+                "group": "Account",
+                "statusCode": "200"
             },
             "schema": {
                 "$schema": "http://json-schema.org/draft-04/schema#",
@@ -114,7 +122,9 @@
         {
             "meta": {
                 "type": "response",
-                "title": null
+                "title": null,
+                "group": "Article",
+                "statusCode": "200"
             },
             "schema": {
                 "$schema": "http://json-schema.org/draft-04/schema#",

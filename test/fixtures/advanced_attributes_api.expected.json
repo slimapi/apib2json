@@ -3,7 +3,9 @@
     {
       "meta": {
         "type": "response",
-        "title": null
+        "title": null,
+        "group": "Coupon",
+        "statusCode": "200"
       },
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
@@ -35,7 +37,9 @@
     {
       "meta": {
         "type": "response",
-        "title": null
+        "title": null,
+        "group": "Coupons",
+        "statusCode": "200"
       },
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
@@ -47,7 +51,9 @@
     {
       "meta": {
         "type": "response",
-        "title": null
+        "title": null,
+        "group": "Coupons",
+        "statusCode": "200"
       },
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
