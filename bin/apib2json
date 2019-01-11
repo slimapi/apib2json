@@ -50,12 +50,17 @@ let input = '';
 if (process.stdin.isTTY) {
     if (!Program.input) {
         Program.outputHelp();
-        process.exit(2);
+        process.exit(1);
     }
 
-    input = Fs
-        .readFileSync(Program.input)
-        .toString();
+    try {
+        input = Fs
+            .readFileSync(Program.input)
+            .toString();
+    } catch (e) {
+        console.error(`File "${Program.input}" cannot be opened.`);
+        process.exit(1);
+    }
 
     main(input);
 } else {
@@ -66,7 +71,7 @@ if (process.stdin.isTTY) {
     process.stdin.on('end', () => {
         if (!input) {
             Program.outputHelp();
-            process.exit(2);
+            process.exit(1);
         }
 
         main(input);
