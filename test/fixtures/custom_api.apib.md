@@ -54,7 +54,7 @@ FORMAT: 1A
                     }
                 }
             }
-            
+
 # Group Frontend
 
 ## Article [/frontend/v1/articles]

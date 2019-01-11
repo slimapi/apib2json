@@ -10,15 +10,15 @@
     "node": ">=7"
   },
   "dependencies": {
-    "commander": "~2.13.0",
+    "commander": "~2.19.0",
     "protagonist": "~1.6.8"
   },
   "devDependencies": {
-    "eslint": "~4.16.0",
-    "eslint-config-airbnb": "~16.1.0",
-    "eslint-plugin-import": "~2.8.0",
-    "eslint-plugin-jsx-a11y": "~6.0.3",
-    "eslint-plugin-react": "~7.5.1",
+    "eslint": "~5.11.0",
+    "eslint-config-airbnb": "~17.1.0",
+    "eslint-plugin-import": "~2.14.0",
+    "eslint-plugin-jsx-a11y": "~6.1.2",
+    "eslint-plugin-react": "~7.12.3",
     "istanbul": "~0.4.5"
   },
   "scripts": {

@@ -16,7 +16,7 @@ The `Create a Coupon` action also demonstrate the description of request
 attributes – once defined, these attributes are implied on every `Create a
 Coupon` request unless the request specifies otherwise. Apparently, the
 description of action attributes is somewhat duplicate to the definition of
-`Coupon` resource attributes. We will address this in the next 
+`Coupon` resource attributes. We will address this in the next
 [Data Structures](10.%20Data%20Structures.md) example.
 
 ## API Blueprint
