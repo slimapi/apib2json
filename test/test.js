@@ -1,7 +1,7 @@
 /**
  * This file is part of the apib2json
  *
- * Copyright (c) 2017 Petr Bugyík
+ * Copyright (c) 2019 Petr Bugyík
  *
  * For the full copyright and license information, please view
  * the file LICENSE.md that was distributed with this source code.
