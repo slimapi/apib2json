@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint no-console: 0 */
 
 /**
  * This file is part of the apib2json
@@ -38,7 +39,11 @@ function main(input) {
                 ? Fs.writeFileSync(Program.output, json)
                 : process.stdout.write(json);
         })
-        .catch(console.error); // eslint-disable-line no-console
+        .catch((error) => {
+            console.error('ERROR: Problem with parsing of Blueprint.', '\n');
+            console.error(JSON.stringify(error, null, 2));
+            process.exit(error.code);
+        });
 }
 
 let input = '';

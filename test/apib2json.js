@@ -32,3 +32,12 @@ Test.apib2json(undefined, Test.fixture('parse_error.md'))
         Assert.equal(e.message, 'base type \'BAD\' is not defined in the document');
         Test.pass('parse_error');
     });
+
+Test.apib2json(undefined, Test.fixture('spaces_vs_tabs_api.apib.md'))
+    .then(() => {
+        Test.fail('spaces_vs_tabs');
+    })
+    .catch((e) => {
+        Assert.equal(e.code, 2);
+        Test.pass('spaces_vs_tabs');
+    });
