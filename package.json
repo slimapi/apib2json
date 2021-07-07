@@ -7,11 +7,11 @@
   "bin": "./bin/apib2json",
   "main": "./lib/apib2json.js",
   "engines": {
-    "node": ">=7"
+    "node": "^14"
   },
   "dependencies": {
     "commander": "~2.19.0",
-    "protagonist": "~1.6.8"
+    "protagonist": "2.2.1"
   },
   "devDependencies": {
     "eslint": "~5.11.0",
