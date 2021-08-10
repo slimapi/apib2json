@@ -1,7 +1,7 @@
 /**
  * This file is part of the apib2json
  *
- * Copyright (c) 2019 Petr Bugyík
+ * Copyright (c) 2021 Petr Bugyík
  *
  * For the full copyright and license information, please view
  * the file LICENSE.md that was distributed with this source code.
@@ -12,7 +12,7 @@
 const Fs = require('fs');
 const Util = require('util');
 const Assert = require('assert');
-const Apib2Json = require('./../lib/apib2json');
+const Apib2Json = require('../lib/apib2json');
 
 const fixtures = __dirname + '/fixtures';
 

@@ -4,35 +4,37 @@
 /**
  * This file is part of the apib2json
  *
- * Copyright (c) 2019 Petr Bugyík
+ * Copyright (c) 2021 Petr Bugyík
  *
  * For the full copyright and license information, please view
  * the file LICENSE.md that was distributed with this source code.
  */
 
 const Fs = require('fs');
-const Program = require('commander');
-const info = require('./../package.json');
-const Apib2Json = require('./../lib/apib2json');
+const Commander = require('commander');
+const info = require('../package.json');
+const Apib2Json = require('../lib/apib2json');
+
+const Program = new Commander.Command();
+
+Program.configureHelp({
+    sortOptions: true,
+});
 
 Program
-    .version(info.version)
     .description(info.description)
-    .option('-v, --verbose', 'Verbose mode, use with --output - default: false')
-    .option('-p, --pretty', 'Output pretty (indented) JSON - default: false')
-    .option('--indent <n>', 'Number of space characters used to indent code, use with --pretty - default: 2', parseInt)
-    .option('-i, --input <file>', 'Path to input (Apib) file - default: STDIN')
-    .option('-o, --output <file>', 'Path to output (JSON) file - default: STDOUT')
-    .parse(process.argv);
+    .helpOption('-h, --help', 'Prints this help')
+    .option('--indent <number>', 'Number of space characters used to indent code, use with --pretty', 2)
+    .option('-d, --debug', 'Debug (verbose) mode, use only with --output', false)
+    .option('-i, --input <file>', 'Path to input (Apib) file (default: STDIN)')
+    .option('-o, --output <file>', 'Path to output (JSON) file (default: STDOUT)')
+    .option('-p, --pretty', 'Output pretty (indented) JSON', false)
+    .version(info.version, '-v, --version', 'Prints version');
+
+Program.parse(process.argv);
 
 function main(input) {
-    const options = {
-        verbose: (Program.output && Program.verbose) || false,
-        pretty: (Program.pretty && true),
-        indent: Program.indent || 2,
-    };
-
-    (new Apib2Json(options))
+    (new Apib2Json(Program.opts()))
         .toJson(input)
         .then((json) => {
             Program.output
@@ -40,7 +42,7 @@ function main(input) {
                 : process.stdout.write(json);
         })
         .catch((error) => {
-            console.error('ERROR: Problem with parsing of Blueprint.', '\n');
+            console.error('ERROR: Problem with parsing of API Blueprint.', '\n');
             console.error(JSON.stringify(error, null, 2));
             process.exit(error.code);
         });

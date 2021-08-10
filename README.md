@@ -19,7 +19,7 @@ It is built on top of [apiaryio/protagonist][link-protagonist] which do hard job
 $ npm install --global apib2json
 ```
 
-> **NOTE**: Recommended way is using a dockerized version, just try `$ docker run --rm bugyik/apib2json --help`
+> **NOTE**: Recommended way is using a dockerized version, just try `$ docker run --rm slimapi/apib2json --help`
 
 ## Usage
 
@@ -31,26 +31,27 @@ Usage: apib2json [options]
 A command-line utility to convert API Blueprint to JSON Schema
 
 Options:
-
-    -h, --help           output usage information
-    -V, --version        output the version number
-    -v, --verbose        Verbose mode, use with --output - default: false
-    -p, --pretty         Output pretty (indented) JSON - default: false
-    --indent <n>         Number of space characters used to indent code, use with --pretty - default: 2
-    -i, --input <file>   Path to input (Apib) file - default: STDIN
-    -o, --output <file>  Path to output (JSON) file - default: STDOUT
+  -d, --debug          Debug (verbose) mode, use only with --output (default: false)
+  -h, --help           Display help for command
+  -i, --input <file>   Path to input (Apib) file (default: STDIN)
+  --indent <number>    Number of space characters used to indent code, use with --pretty (default: 2)
+  -o, --output <file>  Path to output (JSON) file (default: STDOUT)
+  -p, --pretty         Output pretty (indented) JSON (default: false)
+  -v, --version        Display current version
 ```
 
 ## Example
 
-> **NOTE**: The example below requires `docker` installed (npm's version without prefix `docker run --rm -i bugyik/`) 
+> **NOTE**: The example below requires `docker` installed (npm's version without prefix `docker run --rm -i slimapi/`)
 
 ```bash
-$ docker run --rm -i bugyik/apib2json --pretty < input.apib > output.json
+$ docker run --rm -i slimapi/apib2json --pretty < input.apib > output.json
 ``` 
 
 **$ cat input.apib**
 ```
+# Group Coupon
+
 ## Coupon [/coupons/{id}]
 A coupon contains information about a percent-off or amount-off discount you
 might want to apply to a customer.
@@ -63,7 +64,7 @@ might want to apply to a customer.
         A positive integer between 1 and 100 that represents the discount the coupon will apply.
 
     + redeem_by (number) - Date after which the coupon can no longer be redeemed
-    
+
 ### Retrieve a Coupon [GET]
 Retrieves the coupon with the given ID.
 
@@ -78,26 +79,25 @@ Retrieves the coupon with the given ID.
     {
       "meta": {
         "type": "response",
-        "title": null
+        "title": null,
+        "group": "Coupon",
+        "statusCode": "200"
       },
       "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
+        "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
           "id": {
             "type": "string"
           },
           "created": {
-            "type": "number",
-            "description": "Time stamp"
+            "type": "number"
           },
           "percent_off": {
-            "type": "number",
-            "description": "A positive integer between 1 and 100 that represents the discount the coupon will apply."
+            "type": "number"
           },
           "redeem_by": {
-            "type": "number",
-            "description": "Date after which the coupon can no longer be redeemed"
+            "type": "number"
           }
         },
         "required": [
@@ -119,12 +119,10 @@ Please use the [issue tracker][link-issue] to report any bugs or file feature re
 
 #### Developing
 
-Pull Requests are welcome! 
-
-Do you hate contributing to projects where you have to install direct version of Node.js? I know there are tools like [nvm][link-nvm] but there is also Docker to rescue! To begin developing, you just need `docker` and `docker-compose` installed and do this: 
+Pull Requests are welcome! To begin developing, you just need `docker` and `docker-compose` installed and do this:
 
 ```bash
-$ git clone git@github.com:o5/apib2json.git && cd apib2json/
+$ git clone git@github.com:slimapi/apib2json.git && cd apib2json/
 $ docker-compose up
 ```
 
@@ -137,23 +135,23 @@ $ docker exec -it apib2json sh
 ## License
 MIT @ [Petr Bugyík][link-twitter]
 
-[link-build-status]: https://travis-ci.org/o5/apib2json
-[link-coverage]: https://coveralls.io/github/o5/apib2json
+[link-build-status]: https://travis-ci.org/slimapi/apib2json
+[link-coverage]: https://coveralls.io/github/slimapi/apib2json
 [link-protagonist]: https://github.com/apiaryio/protagonist
 [link-apiary]: https://apiary.io
 [link-apib]: https://github.com/apiaryio/api-blueprint
 [link-mson]: https://github.com/apiaryio/mson
 [link-json-schema]: http://json-schema.org
 [link-docker]: https://www.docker.com/what-docker
-[link-registry]: https://hub.docker.com/r/bugyik/apib2json
-[link-microbadger]: https://microbadger.com/images/bugyik/apib2json
-[link-issue]: https://github.com/o5/apib2json/issues
+[link-registry]: https://hub.docker.com/r/slimapi/apib2json
+[link-microbadger]: https://microbadger.com/images/slimapi/apib2json
+[link-issue]: https://github.com/slimapi/apib2json/issues
 [link-nvm]: https://github.com/creationix/nvm
 [link-twitter]: https://twitter.com/bugyik
 [link-npm]: https://www.npmjs.com/package/apib2json
 
-[img-build-status]: https://img.shields.io/travis/o5/apib2json/master.svg
-[img-coverage]: https://img.shields.io/coveralls/o5/apib2json.svg
-[img-version]: https://images.microbadger.com/badges/version/bugyik/apib2json.svg
-[img-docker-pulls]: https://img.shields.io/docker/pulls/bugyik/apib2json.svg
-[img-docker-layers]: https://images.microbadger.com/badges/image/bugyik/apib2json.svg
+[img-build-status]: https://img.shields.io/travis/slimapi/apib2json/master.svg
+[img-coverage]: https://img.shields.io/coveralls/slimapi/apib2json.svg
+[img-version]: https://images.microbadger.com/badges/version/slimapi/apib2json.svg
+[img-docker-pulls]: https://img.shields.io/docker/pulls/slimapi/apib2json.svg
+[img-docker-layers]: https://images.microbadger.com/badges/image/slimapi/apib2json.svg

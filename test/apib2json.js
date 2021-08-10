@@ -1,7 +1,7 @@
 /**
  * This file is part of the apib2json
  *
- * Copyright (c) 2019 Petr Bugyík
+ * Copyright (c) 2021 Petr Bugyík
  *
  * For the full copyright and license information, please view
  * the file LICENSE.md that was distributed with this source code.
@@ -38,6 +38,9 @@ Test.apib2json(undefined, Test.fixture('spaces_vs_tabs_api.apib.md'))
         Test.fail('spaces_vs_tabs');
     })
     .catch((e) => {
-        Assert.equal(e.code, 2);
+        Assert.equal(
+            e.message,
+            "the use of tab(s) '\\t' in source data isn't currently supported, please contact makers"
+        );
         Test.pass('spaces_vs_tabs');
     });
