@@ -13,7 +13,7 @@ RUN apk add --no-cache \
 
 ADD package.json .
 ADD package-lock.json .
-RUN npm install --production && \
+RUN npm install --only=prod && \
     npm cache --force clean
 
 COPY . .

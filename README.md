@@ -1,8 +1,8 @@
 # apib2json
-[![build status][img-build-status]][link-build-status]
-[![code coverage][img-coverage]][link-coverage]
-![version][img-version]
-[![docker pulls][img-docker-layers]][link-microbadger]
+[![Release][img-release]][link-release]
+[![License][img-license]][link-license]
+[![Build][img-build]][link-build]
+[![Code Coverage][img-coverage]][link-coverage]
 [![docker pulls][img-docker-pulls]][link-registry]
 
 A command-line utility to convert API Blueprint to JSON Schema.
@@ -19,7 +19,7 @@ It is built on top of [apiaryio/protagonist][link-protagonist] which do hard job
 $ npm install --global apib2json
 ```
 
-> **NOTE**: Recommended way is using a dockerized version, just try `$ docker run --rm slimapi/apib2json --help`
+> **NOTE**: You can also use a dockerized version, just try `$ docker run --rm slimapi/apib2json --help`
 
 ## Usage
 
@@ -32,12 +32,12 @@ A command-line utility to convert API Blueprint to JSON Schema
 
 Options:
   -d, --debug          Debug (verbose) mode, use only with --output (default: false)
-  -h, --help           Display help for command
+  -h, --help           Prints this help
   -i, --input <file>   Path to input (Apib) file (default: STDIN)
   --indent <number>    Number of space characters used to indent code, use with --pretty (default: 2)
   -o, --output <file>  Path to output (JSON) file (default: STDOUT)
   -p, --pretty         Output pretty (indented) JSON (default: false)
-  -v, --version        Display current version
+  -v, --version        Prints version
 ```
 
 ## Example
@@ -135,23 +135,26 @@ $ docker exec -it apib2json sh
 ## License
 MIT @ [Petr Bugyík][link-twitter]
 
-[link-build-status]: https://travis-ci.org/slimapi/apib2json
-[link-coverage]: https://coveralls.io/github/slimapi/apib2json
-[link-protagonist]: https://github.com/apiaryio/protagonist
 [link-apiary]: https://apiary.io
 [link-apib]: https://github.com/apiaryio/api-blueprint
-[link-mson]: https://github.com/apiaryio/mson
-[link-json-schema]: http://json-schema.org
+[link-build]: https://github.com/slimapi/apib2json/actions
+[link-coverage]: https://codecov.io/gh/slimapi/apib2json
 [link-docker]: https://www.docker.com/what-docker
-[link-registry]: https://hub.docker.com/r/slimapi/apib2json
-[link-microbadger]: https://microbadger.com/images/slimapi/apib2json
 [link-issue]: https://github.com/slimapi/apib2json/issues
-[link-nvm]: https://github.com/creationix/nvm
-[link-twitter]: https://twitter.com/bugyik
+[link-json-schema]: http://json-schema.org
+[link-license]: LICENSE.md
+[link-microbadger]: https://microbadger.com/images/slimapi/apib2json
+[link-mson]: https://github.com/apiaryio/mson
 [link-npm]: https://www.npmjs.com/package/apib2json
+[link-protagonist]: https://github.com/apiaryio/protagonist
+[link-registry]: https://hub.docker.com/r/slimapi/apib2json
+[link-release]: https://github.com/slimapi/apib2json/releases
+[link-twitter]: https://twitter.com/bugyik
 
 [img-build-status]: https://img.shields.io/travis/slimapi/apib2json/master.svg
-[img-coverage]: https://img.shields.io/coveralls/slimapi/apib2json.svg
+[img-build]: https://img.shields.io/github/workflow/status/slimapi/apib2json/Continuous%20Integration/master?style=flat-square&label=Build
+[img-coverage]: https://img.shields.io/codecov/c/github/slimapi/apib2json/master?style=flat-square&label=Coverage
+[img-docker-pulls]: https://img.shields.io/docker/pulls/slimapi/apib2json.svg?style=flat-square&label=Docker%20Pulls
+[img-license]: https://img.shields.io/github/license/slimapi/apib2json?style=flat-square&label=License&color=blue
+[img-release]: https://img.shields.io/github/v/tag/slimapi/apib2json.svg?label=Release&style=flat-square
 [img-version]: https://images.microbadger.com/badges/version/slimapi/apib2json.svg
-[img-docker-pulls]: https://img.shields.io/docker/pulls/slimapi/apib2json.svg
-[img-docker-layers]: https://images.microbadger.com/badges/image/slimapi/apib2json.svg

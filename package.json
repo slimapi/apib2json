@@ -21,7 +21,7 @@
   },
   "scripts": {
     "test": "node ./test/apib2json.js",
-    "coverage": "./node_modules/nyc/bin/nyc.js npm test",
+    "coverage": "./node_modules/nyc/bin/nyc.js --reporter=clover --reporter=text npm test",
     "lint": "./node_modules/eslint/bin/eslint.js --color bin/* lib test/"
   },
   "repository": {
