@@ -15,7 +15,7 @@
     "eol-last": [2],
     "comma-dangle": [2, "always-multiline"],
     "indent": [2, 4],
-    "max-len": [2, {"code": 120}],
+    "max-len": [2, {"code": 130}],
     "no-unsafe-negation": 0,
     "import/no-unresolved": 0,
     "no-unused-expressions": [2, {"allowTernary": true, "allowShortCircuit": true}]

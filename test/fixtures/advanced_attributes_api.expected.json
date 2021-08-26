@@ -8,23 +8,20 @@
         "statusCode": "200"
       },
       "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
+        "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
           "id": {
             "type": "string"
           },
           "created": {
-            "type": "number",
-            "description": "Time stamp"
+            "type": "number"
           },
           "percent_off": {
-            "type": "number",
-            "description": "A positive integer between 1 and 100 that represents the discount the coupon will apply."
+            "type": "number"
           },
           "redeem_by": {
-            "type": "number",
-            "description": "Date after which the coupon can no longer be redeemed"
+            "type": "number"
           }
         },
         "required": [
@@ -42,12 +39,31 @@
         "statusCode": "200"
       },
       "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
+        "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "array"
       }
     }
   ],
   "[POST]/coupons{?limit}": [
+    {
+      "meta": {
+        "type": "request",
+        "title": null,
+        "group": "Coupons"
+      },
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "percent_off": {
+            "type": "number"
+          },
+          "redeem_by": {
+            "type": "number"
+          }
+        }
+      }
+    },
     {
       "meta": {
         "type": "response",
@@ -56,23 +72,20 @@
         "statusCode": "200"
       },
       "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
+        "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
           "id": {
             "type": "string"
           },
           "created": {
-            "type": "number",
-            "description": "Time stamp"
+            "type": "number"
           },
           "percent_off": {
-            "type": "number",
-            "description": "A positive integer between 1 and 100 that represents the discount the coupon will apply."
+            "type": "number"
           },
           "redeem_by": {
-            "type": "number",
-            "description": "Date after which the coupon can no longer be redeemed"
+            "type": "number"
           }
         },
         "required": [

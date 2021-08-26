@@ -10,8 +10,8 @@
 const Assert = require('assert');
 const Test = require('./test');
 
-Test.shouldPass('advanced_attributes_api', { pretty: true });
-Test.shouldPass('custom_api', { pretty: true, indent: 4 });
+Test.shouldPass('advanced_attributes_api', { pretty: false });
+Test.shouldPass('custom_api', { pretty: false, indent: 2 });
 Test.shouldPass('custom_api', { pretty: false });
 Test.shouldPass('custom_api', { verbose: true, logger: () => {} });
 
@@ -38,6 +38,6 @@ Test.apib2json(undefined, Test.fixture('spaces_vs_tabs_api.apib.md'))
         Test.fail('spaces_vs_tabs');
     })
     .catch((e) => {
-        Assert.equal(e.code, 2);
+        Assert.equal(e.message, "the use of tab(s) '\\t' in source data isn't currently supported, please contact makers");
         Test.pass('spaces_vs_tabs');
     });

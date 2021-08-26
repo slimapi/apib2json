@@ -12,7 +12,7 @@
 const Fs = require('fs');
 const Util = require('util');
 const Assert = require('assert');
-const Apib2Json = require('./../lib/apib2json');
+const Apib2Json = require('../lib/apib2json');
 
 const fixtures = __dirname + '/fixtures';
 
