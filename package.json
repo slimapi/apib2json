@@ -1,6 +1,6 @@
 {
   "name": "apib2json",
-  "version": "0.2.0",
+  "version": "0.0.0",
   "description": "A command-line utility for get JSON Schema(s) from API Blueprint",
   "license": "MIT",
   "author": "Petr Bugyík",
@@ -22,7 +22,8 @@
   "scripts": {
     "test": "node ./test/apib2json.js",
     "coverage": "npx nyc --reporter=clover --reporter=text --reporter=html npm test",
-    "lint": "npx eslint --color bin/* lib/* test/*.js"
+    "lint": "npx eslint --color bin/* lib/* test/*.js",
+    "dev": "npm run lint && npm test"
   },
   "repository": {
     "type": "git",

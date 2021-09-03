@@ -126,11 +126,15 @@ $ git clone git@github.com:slimapi/apib2json.git && cd apib2json/
 $ docker-compose up
 ```
 
-#### Do you need to go inside the container?
+#### Getting Into a Docker Container’s Shell
 ```bash
 $ docker exec -it apib2json sh
 ```
-> **NOTE**: Assumes `docker-composer up` was finished.
+
+#### Please run Lint & Test (inside of Docker Container)
+```bash
+$ npm run dev
+```
 
 ## License
 MIT @ [Petr Bugyík][link-twitter]
