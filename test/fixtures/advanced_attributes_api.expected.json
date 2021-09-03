@@ -3,8 +3,8 @@
     {
       "meta": {
         "type": "response",
-        "title": null,
-        "group": "Coupon",
+        "title": "Retrieve a Coupon",
+        "group": "Coupons",
         "statusCode": "200"
       },
       "schema": {
@@ -34,7 +34,7 @@
     {
       "meta": {
         "type": "response",
-        "title": null,
+        "title": "List all Coupons",
         "group": "Coupons",
         "statusCode": "200"
       },
@@ -48,7 +48,7 @@
     {
       "meta": {
         "type": "request",
-        "title": null,
+        "title": "Create a Coupon",
         "group": "Coupons"
       },
       "schema": {
@@ -67,7 +67,7 @@
     {
       "meta": {
         "type": "response",
-        "title": null,
+        "title": "Create a Coupon",
         "group": "Coupons",
         "statusCode": "200"
       },

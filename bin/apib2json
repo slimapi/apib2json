@@ -21,46 +21,61 @@ Program.configureHelp({
     sortOptions: true,
 });
 
+const myParseInt = (value) => {
+    const parsedValue = parseInt(value, 10);
+    if (Number.isNaN(parsedValue)) {
+        throw new Commander.InvalidArgumentError('Not a number.');
+    }
+
+    return parsedValue;
+};
+
 Program
     .description(info.description)
     .helpOption('-h, --help', 'Prints this help')
-    .option('--indent <number>', 'Number of space characters used to indent code, use with --pretty', 2)
+    .option('--indent <number>', 'Number of space characters used to indent code, use with --pretty', myParseInt, 2)
     .option('-d, --debug', 'Debug (verbose) mode, use only with --output', false)
-    .option('-i, --input <file>', 'Path to input (Apib) file (default: STDIN)')
+    .option('-i, --input <file>', 'Path to input (API Blueprint) file (default: STDIN)')
     .option('-o, --output <file>', 'Path to output (JSON) file (default: STDOUT)')
     .option('-p, --pretty', 'Output pretty (indented) JSON', false)
     .version(info.version, '-v, --version', 'Prints version');
 
-Program.parse(process.argv);
+const options = Program
+    .parse(process.argv)
+    .opts();
 
 function main(input) {
-    (new Apib2Json(Program.opts()))
+    (new Apib2Json(options))
         .toJson(input)
         .then((json) => {
-            Program.output
-                ? Fs.writeFileSync(Program.output, json)
+            options.output
+                ? Fs.writeFileSync(options.output, json)
                 : process.stdout.write(json);
         })
         .catch((error) => {
-            console.error('ERROR: Problem with parsing of API Blueprint.', '\n');
-            console.error(JSON.stringify(error, null, 2));
-            process.exit(error.code);
+            if (error instanceof SyntaxError) {
+                console.error('ERROR: Parsing failed (%s)', error.message);
+            } else {
+                throw error;
+            }
+
+            process.exit(1);
         });
 }
 
 let input = '';
 if (process.stdin.isTTY) {
-    if (!Program.input) {
+    if (!options.input) {
         Program.outputHelp();
         process.exit(1);
     }
 
     try {
         input = Fs
-            .readFileSync(Program.input)
+            .readFileSync(options.input)
             .toString();
     } catch (e) {
-        console.error(`File "${Program.input}" cannot be opened.`);
+        console.error('ERROR: File "%s" cannot be opened.', options.input);
         process.exit(1);
     }
 

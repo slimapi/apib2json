@@ -35,9 +35,10 @@ class Test {
      * @param {String} spec
      * @param {Object} options
      */
-    static shouldPass(spec, options) {
+    static shouldPass(spec, opt) {
         const curr = `${fixtures}/${spec}.current.json`;
         const apib = Test.fixture(`${spec}.apib.md`);
+        const options = opt || {};
 
         Test.apib2json(options, apib)
             .then((res) => {
@@ -61,7 +62,6 @@ class Test {
     }
 
     /**
-     *
      * @param options
      * @returns {Promise.<TResult>}
      */

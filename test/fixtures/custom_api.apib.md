@@ -1,11 +1,13 @@
 FORMAT: 1A
 
 # Custom API
+This type of API is an example of how real API looks like.
+* Missing `Group` definitions
+* Multiple response types (error examples)
+* Attaching custom JSON Schema(s)
 
 ## API Blueprint
 + [Link to Apiary](http://docs.customapi1.apiary.io/)
-
-# Group Backend
 
 ## Account [/backend/v1/account]
 ### Login [PUT /backend/v1/account/login]
@@ -39,7 +41,7 @@ FORMAT: 1A
     + Schema
 
             {
-                "$schema": "http://json-schema.org/draft-04/schema#",
+                "$schema": "http://json-schema.org/draft-07/schema#",
                 "properties": {
                     "id": {
                         "type": "number"
@@ -54,8 +56,6 @@ FORMAT: 1A
                     }
                 }
             }
-
-# Group Frontend
 
 ## Article [/frontend/v1/articles]
 + Attributes (object)

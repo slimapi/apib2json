@@ -5,11 +5,11 @@
 [![Code Coverage][img-coverage]][link-coverage]
 [![docker pulls][img-docker-pulls]][link-registry]
 
-A command-line utility to convert API Blueprint to JSON Schema.
+A command-line utility for get JSON Schema(s) from API Blueprint.
 
 ## Introduction
 
-If you are building your API with [Apiary][link-apiary] you should know [API Blueprint][link-apib], right? Good documentation is cool but it would be nice to re-use your validation which you already wrote in [MSON][link-mson] (or [JSON Schema][link-json-schema]). So there is the task: *Convert Blueprint to JSON Schema*. This tool is specially for it.
+If you are building your API with [Apiary][link-apiary] you should know [API Blueprint][link-apib], right? Good documentation is cool but it would be nice to re-use your validation which you already wrote in [MSON][link-mson] (or [JSON Schema][link-json-schema]). So here is the task: **Get JSON Schema(s) from API Blueprint**. Good news for you: This tool does it!
   
 It is built on top of [apiaryio/protagonist][link-protagonist] which do hard job, but if you know this Node.js C++ binding you sure know that compilation of this library (`npm install protagonist`) takes time. This is the reason why this tool is also wrapped with [Docker][link-docker], but sure you can also use it with [`npm`][link-npm].
 
@@ -19,7 +19,7 @@ It is built on top of [apiaryio/protagonist][link-protagonist] which do hard job
 $ npm install --global apib2json
 ```
 
-> **NOTE**: You can also use a dockerized version, just try `$ docker run --rm slimapi/apib2json --help`
+> **NOTE**: The dockerized version is recommended, just try `$ docker run --rm slimapi/apib2json --help`
 
 ## Usage
 
@@ -28,12 +28,12 @@ $ npm install --global apib2json
 ```bash
 Usage: apib2json [options]
 
-A command-line utility to convert API Blueprint to JSON Schema
+A command-line utility for get JSON Schema(s) from API Blueprint
 
 Options:
   -d, --debug          Debug (verbose) mode, use only with --output (default: false)
   -h, --help           Prints this help
-  -i, --input <file>   Path to input (Apib) file (default: STDIN)
+  -i, --input <file>   Path to input (API Blueprint) file (default: STDIN)
   --indent <number>    Number of space characters used to indent code, use with --pretty (default: 2)
   -o, --output <file>  Path to output (JSON) file (default: STDOUT)
   -p, --pretty         Output pretty (indented) JSON (default: false)
@@ -50,7 +50,7 @@ $ docker run --rm -i slimapi/apib2json --pretty < input.apib > output.json
 
 **$ cat input.apib**
 ```
-# Group Coupon
+# Awesome API
 
 ## Coupon [/coupons/{id}]
 A coupon contains information about a percent-off or amount-off discount you
@@ -79,7 +79,7 @@ Retrieves the coupon with the given ID.
     {
       "meta": {
         "type": "response",
-        "title": null,
+        "title": "Retrieve a Coupon",
         "group": "Coupon",
         "statusCode": "200"
       },
@@ -109,7 +109,7 @@ Retrieves the coupon with the given ID.
 }
 ```
 
-> **NOTE**: More examples of input/ouput are available in [test/fixtures](test/fixtures) folder.
+> **NOTE**: More examples of input/ouput are available in [test/fixtures](./test/fixtures) folder.
 
 ## Contributing
 

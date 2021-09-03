@@ -10,18 +10,19 @@
 const Assert = require('assert');
 const Test = require('./test');
 
+Test.shouldPass('without-attributes');
 Test.shouldPass('advanced_attributes_api', { pretty: true });
 Test.shouldPass('custom_api', { pretty: true, indent: 4 });
 Test.shouldPass('custom_api', { pretty: false });
-Test.shouldPass('custom_api', { verbose: true, logger: () => {} });
+Test.shouldPass('custom_api', { debug: true, logger: () => {} });
 
 Test.apib2json(undefined, 'AAA')
-    .then((res) => {
-        Assert.equal(res, '{}');
-        Test.pass('bad_input');
-    })
-    .catch(() => {
+    .then(() => {
         Test.fail('bad_input');
+    })
+    .catch((res) => {
+        Assert.equal(res.message, 'expected API name, e.g. \'# <API Name>\'');
+        Test.pass('bad_input');
     });
 
 Test.apib2json(undefined, Test.fixture('parse_error.md'))
