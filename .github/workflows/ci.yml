@@ -65,8 +65,7 @@ jobs:
       - name: Push to DockerHub (LATEST)
         if: github.ref == 'refs/heads/master'
         run: |
-          docker tag slimapi/apib2json:"$GITHUB_SHA" slimapi/apib2json:latest
-          docker push slimapi/apib2json::latest
+          docker push slimapi/apib2json
 
       - name: NPM Publish (MASTER)
         if: github.ref == 'refs/heads/master'
