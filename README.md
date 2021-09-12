@@ -11,7 +11,7 @@ A command-line utility for get JSON Schema(s) from API Blueprint.
 
 If you are building your API with [Apiary][link-apiary] you should know [API Blueprint][link-apib], right? Good documentation is cool but it would be nice to re-use your validation which you already wrote in [MSON][link-mson] (or [JSON Schema][link-json-schema]). So here is the task: **Get JSON Schema(s) from API Blueprint**. Good news for you: This tool does it!
   
-It is built on top of [apiaryio/protagonist][link-protagonist] which do hard job, but if you know this Node.js C++ binding you sure know that compilation of this library (`npm install protagonist`) takes time. This is the reason why this tool is also wrapped with [Docker][link-docker], but sure you can also use it with [`npm`][link-npm].
+It is built on top of [apiaryio/protagonist][link-protagonist] which does the hard job, but if you know this Node.js C++ binding you sure know that compilation of this library (`npm install protagonist`) is very slow. This is the reason why this tool is also wrapped with [Docker][link-docker], but sure you can also use it with [`npm`][link-npm].
 
 ## Installation
 
@@ -126,11 +126,15 @@ $ git clone git@github.com:slimapi/apib2json.git && cd apib2json/
 $ docker-compose up
 ```
 
-#### Do you need to go inside the container?
+#### Getting Into a Docker Container’s Shell
 ```bash
 $ docker exec -it apib2json sh
 ```
-> **NOTE**: Assumes `docker-composer up` was finished.
+
+#### Please run Lint & Test (inside of Docker Container)
+```bash
+$ npm run ci
+```
 
 ## License
 MIT @ [Petr Bugyík][link-twitter]

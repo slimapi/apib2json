@@ -20,6 +20,14 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Get version and use it in package.json
+        run: |
+          VERSION=$(git describe | sed 's/^v//')
+          echo "::set-output name=VERSION::$VERSION"
+          sed -i "s/0.0.0/$VERSION/g" package.json
+          cat package.json
+        id: version
+
       - name: Enable Docker Layer Caching
         uses: satackey/action-docker-layer-caching@v0.0.11
         continue-on-error: true
@@ -42,8 +50,6 @@ jobs:
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2.0.2
-        with:
-          fail_ci_if_error: true
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
@@ -53,12 +59,17 @@ jobs:
 
       - name: Push to DockerHub (VERSION)
         run: |
-          VERSION=$(git describe | sed 's/^v//')
-          docker tag slimapi/apib2json:"$GITHUB_SHA" slimapi/apib2json:"$VERSION"
-          docker push slimapi/apib2json:"$VERSION"
+          docker tag slimapi/apib2json:"$GITHUB_SHA" slimapi/apib2json:${{ steps.version.outputs.VERSION }}
+          docker push slimapi/apib2json:${{ steps.version.outputs.VERSION }}
 
       - name: Push to DockerHub (LATEST)
         if: github.ref == 'refs/heads/master'
         run: |
           docker tag slimapi/apib2json:"$GITHUB_SHA" slimapi/apib2json:latest
           docker push slimapi/apib2json::latest
+
+      - name: NPM Publish (MASTER)
+        if: github.ref == 'refs/heads/master'
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
