@@ -1,7 +1,7 @@
 The MIT License (MIT)
 =====================
 
-Copyright © 2021 Petr Bugyík (http://petr.bugyik.cz)
+Copyright © 2023 Petr Bugyík (http://petr.bugyik.cz)
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation

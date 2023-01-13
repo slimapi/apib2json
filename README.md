@@ -156,7 +156,7 @@ MIT @ [Petr Bugyík][link-twitter]
 [link-twitter]: https://twitter.com/bugyik
 
 [img-build-status]: https://img.shields.io/travis/slimapi/apib2json/master.svg
-[img-build]: https://img.shields.io/github/workflow/status/slimapi/apib2json/Continuous%20Integration/master?style=flat-square&label=Build
+[img-build]: https://img.shields.io/github/actions/workflow/status/slimapi/apib2json/.github/workflows/ci.yml?branch=master&style=flat-square&label=Build
 [img-coverage]: https://img.shields.io/codecov/c/github/slimapi/apib2json/master?style=flat-square&label=Coverage
 [img-docker-pulls]: https://img.shields.io/docker/pulls/slimapi/apib2json.svg?style=flat-square&label=Docker%20Pulls
 [img-license]: https://img.shields.io/github/license/slimapi/apib2json?style=flat-square&label=License&color=blue
