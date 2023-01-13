@@ -119,11 +119,11 @@ Please use the [issue tracker][link-issue] to report any bugs or file feature re
 
 #### Developing
 
-Pull Requests are welcome! To begin developing, you just need `docker` and `docker-compose` installed and do this:
+Pull Requests are welcome! To begin developing, you just need `docker` installed and do this:
 
 ```bash
 $ git clone git@github.com:slimapi/apib2json.git && cd apib2json/
-$ docker-compose up
+$ docker compose up
 ```
 
 #### Getting Into a Docker Container’s Shell
